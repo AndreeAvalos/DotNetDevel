@@ -10,7 +10,7 @@ public class UserConfig:IEntityTypeConfiguration<UserEntity>
 {
     public void Configure(EntityTypeBuilder<UserEntity> builder)
     {
-        builder.Property( prop => prop.CreatedAt).HasDefaultValueSql("now()");
+        builder.Property( prop => prop.CreatedAt).HasDefaultValueSql("getdate()");
         TextReader reader = new StreamReader($"./Database/Data/users.csv");
         CsvConfiguration csvConfig = new(CultureInfo.InvariantCulture)
         {

@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "4e196eec-08a4-4a9e-bd10-8d29799f2c5e",
+		"name": "DotNetCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LOGIN",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"aavalos\",\r\n  \"password\": \"root\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7247/api/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7247",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "New User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"prueba\",\r\n  \"password\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7247/api/user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7247",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"string\",\r\n  \"password\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7247/api/user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7247",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7247/api/user/prueba",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7247",
+							"path": [
+								"api",
+								"user",
+								"prueba"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7247/api/user/aavalos",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7247",
+							"path": [
+								"api",
+								"user",
+								"aavalos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7247/api/user/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7247",
+							"path": [
+								"api",
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SURVEY",
+			"item": [
+				{
+					"name": "Create Survey",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"encuesta 1\",\r\n  \"description\": \"encuesta prueba\",\r\n  \"fields\": [\r\n    {\r\n      \"name\": \"campo 1\",\r\n      \"title\": \"NOMBRE\",\r\n      \"fieldType\": \"texto\",\r\n      \"isRequired\": \"si\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7247/api/survey",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7247",
+							"path": [
+								"api",
+								"survey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Survey",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Update Survey",
+					"request": {
+						"method": "PUT",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Survey",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7247/api/survey/c8bbd001-9c08-4dd6-98c3-bf0e08554456",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7247",
+							"path": [
+								"api",
+								"survey",
+								"c8bbd001-9c08-4dd6-98c3-bf0e08554456"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Answer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"link\": \"1253a9d5-a966-483a-ab28-881fa9c1257c\",\r\n  \"answers\": [\r\n    {\r\n      \"fieldSurveyId\": 7,\r\n      \"answer\": \"hola mundo\"\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7247/api/survey",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7247",
+							"path": [
+								"api",
+								"survey"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Results",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFhdmFsb3MiLCJleHAiOjE2NjQ5MjQ4ODAsImlzcyI6Imh0dHBzOi8vbG9jYWxob3N0OjcyNDcvIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NzI0Ny8ifQ.JSdnB5M6uHqbyWjrDW2L22JM87ADHZnn6x0dkCsgV5c",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

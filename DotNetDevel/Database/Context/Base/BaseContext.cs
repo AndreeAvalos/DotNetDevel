@@ -9,15 +9,22 @@ public class BaseContext : DbContext
 {
     public BaseContext(DbContextOptions options) : base(options)
     {
-        
+
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<AnswerSurvey>(builder =>
-        {
-            builder.HasKey(entity => new {entity.SurveyId, entity.FieldSurveyId});
-        });
+
+        modelBuilder.Entity<SurveyEntity>()
+            .HasMany(entity => entity.FieldSurvey)
+            .WithOne(entity => entity.Survey)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<FieldSurveyEntity>()
+            .HasMany(entity => entity.AnswerSurvey)
+            .WithOne(entity => entity.FieldSurvey)
+            .OnDelete(DeleteBehavior.Cascade);
+
     }
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
@@ -30,12 +37,12 @@ public class BaseContext : DbContext
             switch (entityEntry.State)
             {
                 case EntityState.Added:
-                    ((BaseEntityTimestamp) entityEntry.Entity).CreatedAt = DateTime.UtcNow;
-                    ((BaseEntityTimestamp) entityEntry.Entity).Active = true;
+                    ((BaseEntityTimestamp)entityEntry.Entity).CreatedAt = DateTime.UtcNow;
+                    ((BaseEntityTimestamp)entityEntry.Entity).Active = true;
                     break;
                 case EntityState.Modified:
-                    ((BaseEntityTimestamp) entityEntry.Entity).UpdatedAt = DateTime.UtcNow;
-                    Entry((BaseEntityTimestamp) entityEntry.Entity).Property(x => x.CreatedAt).IsModified = false;
+                    ((BaseEntityTimestamp)entityEntry.Entity).UpdatedAt = DateTime.UtcNow;
+                    Entry((BaseEntityTimestamp)entityEntry.Entity).Property(x => x.CreatedAt).IsModified = false;
                     break;
                 case EntityState.Detached:
                 case EntityState.Unchanged:
@@ -48,4 +55,7 @@ public class BaseContext : DbContext
     }
 
     public virtual DbSet<UserEntity> UserEntity { get; set; } = null!;
+    public virtual DbSet<SurveyEntity> SurveyEntity { get; set; } = null!;
+    public virtual DbSet<FieldSurveyEntity> FieldSurvey { get; set; } = null!;
+    public virtual DbSet<AnswerSurveyEntity> AnswerSurveys { get; set; } = null!;
 }
